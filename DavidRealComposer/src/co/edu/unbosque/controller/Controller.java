@@ -17,26 +17,7 @@ public class Controller {
 	public void funcionar() {
 		boolean valido=false;
 		RR.gestionarPropiedades();
-		do {
-			String opcion=gui.pedirDato("Gestor de canciones de RealRecords \nSeleccione un cantante: \n\n"
-					+ "1. "+RR.seleccionarCantante(1)+"\n2. "+RR.seleccionarCantante(2));
-			switch (opcion) {
-			case "1": {
-				RR.seleccionarCantante(1);
-				valido=true;
-				break;
-			}case "2":{
-				RR.seleccionarCantante(2);
-				valido=true;
-				break;
-			}
-			default:
-				gui.mostrarResultados("Ingrese una opción valida");
-			}
-		}while(!valido);
-		
-		valido=false;
-		
+		seleccionarCantante();
 		do {
 			String opcion=gui.pedirDato("Gestor de canciones de RealRecords \nSeleccione una opción: \n\n"
 					+ "1. Generar y guardar una canción\n2. Ver una canción guardada");
@@ -48,6 +29,27 @@ public class Controller {
 				break;
 			}case "2":{
 				verCancionGuardada();
+				valido=true;
+				break;
+			}
+			default:
+				gui.mostrarResultados("Ingrese una opción valida");
+			}
+		}while(!valido);
+	}
+	
+	public void seleccionarCantante() {
+		boolean valido=false;
+		do {
+			String opcion=gui.pedirDato("Gestor de canciones de RealRecords \nSeleccione un cantante: \n\n"
+					+ "1. "+RR.seleccionarCantante(1)+"\n2. "+RR.seleccionarCantante(2));
+			switch (opcion) {
+			case "1": {
+				RR.seleccionarCantante(1);
+				valido=true;
+				break;
+			}case "2":{
+				RR.seleccionarCantante(2);
 				valido=true;
 				break;
 			}
